@@ -15,10 +15,8 @@ class MenuLauncher: NSObject {
     var mainView: UIView
     var isMenuPresented = false
     
-    private let menu: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.white
-        view.layer.cornerRadius = 16
+    private let menu: MenuView = {
+        let view = Bundle.main.loadNibNamed("MenuView", owner: self, options: nil)?.first as! MenuView
         return view
     }()
     
@@ -36,7 +34,6 @@ class MenuLauncher: NSObject {
     // MARK: - MENU MANAGEMENT
     
     func showMenu() {
-        
         mainView.addSubview(menu)
         let y = mainView.frame.height - height
         menu.frame = CGRect(x: 0, y: mainView.frame.height, width: mainView.frame.width, height: height)

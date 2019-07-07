@@ -19,43 +19,27 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AHw-CO-1Gm">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                     <subviews>
-                        <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="Ba6-tW-LZF">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RSk-nZ-QFc">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="j2j-eg-Dc5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OBJECTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWV-k8-5Yj">
-                                            <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
-                                            <color key="backgroundColor" red="0.0" green="0.84007389919999997" blue="0.89001031090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-bj-Jwm">
-                                            <rect key="frame" x="207" y="0.0" width="207" height="50"/>
-                                            <color key="backgroundColor" red="0.076219159450000004" green="0.4826569872" blue="0.69562975890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="tintColor" red="0.076219159450000004" green="0.4826569872" blue="0.69562975890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="j2j-eg-Dc5" firstAttribute="leading" secondItem="Ba6-tW-LZF" secondAttribute="leading" id="ceD-Oh-ABT"/>
-                                <constraint firstItem="j2j-eg-Dc5" firstAttribute="top" secondItem="Ba6-tW-LZF" secondAttribute="top" id="cvf-3X-AFw"/>
-                                <constraint firstAttribute="bottom" secondItem="j2j-eg-Dc5" secondAttribute="bottom" id="xjs-oz-bH3"/>
-                                <constraint firstAttribute="trailing" secondItem="j2j-eg-Dc5" secondAttribute="trailing" id="yQi-of-7KQ"/>
+                                <constraint firstAttribute="height" constant="50" id="VBj-8S-ZwR"/>
                             </constraints>
-                        </view>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MM5-Nh-oAf">
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="C48-hL-gbT">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MM5-Nh-oAf">
                             <rect key="frame" x="0.0" y="50" width="414" height="150"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lAo-TR-NtR">
-                                <size key="itemSize" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="1T3-oL-PlS"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lAo-TR-NtR">
+                                <size key="itemSize" width="50" height="150"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -73,6 +57,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRAdius">
+                    <integer key="value" value="16"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="categoryCollectionView" destination="RSk-nZ-QFc" id="OV2-NU-5Oi"/>
+                <outlet property="contentCollectionView" destination="MM5-Nh-oAf" id="I3S-v9-jlZ"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="128.63568215892056"/>
         </view>
     </objects>

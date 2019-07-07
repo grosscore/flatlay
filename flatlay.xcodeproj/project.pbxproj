@@ -57,6 +57,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		342AAAA722D149F900960522 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		346C7CEA222B22A100C4A1C3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +126,7 @@
 		34C56BB322BAE783006B3560 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				342AAAA722D149F900960522 /* Cells */,
 				34FF0B88224E33050080D14A /* SceneView.swift */,
 				3440060522C411A600F3453B /* MenuView.swift */,
 				342E863C22C17A750093BEFA /* MenuView.xib */,

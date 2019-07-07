@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override var shouldAutorotate: Bool {
         return false
@@ -61,6 +61,10 @@ class MainViewController: UIViewController {
         homepod.position = SCNVector3(-0.1, 0, -0.2)
         sceneView.scene?.rootNode.addChildNode(homepod)
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideMenu))
+        tapGestureRecognizer.delegate = self
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
     }
 
 
@@ -71,7 +75,10 @@ class MainViewController: UIViewController {
         menuLauncher.showMenu()
     }
     
-    
+    @objc func hideMenu() {
+        guard let menuLauncher = self.menuLauncher else { return }
+        menuLauncher.hideMenu()
+    }
     
     // MARK: - NAVIGATION
     
