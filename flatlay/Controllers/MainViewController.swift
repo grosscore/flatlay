@@ -36,7 +36,6 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var homePod: SCNReferenceNode {
         let url = Bundle.main.url(forResource: "/art.scnassets/HomePod/HomePod", withExtension: ".scn")
-    
         let object = SCNReferenceNode(url: url!)
         return object!
     }
@@ -48,7 +47,7 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         interactionManager = InteractionManager(sceneView: sceneView)
-        menuLauncher = MenuLauncher(view: sceneView)
+        menuLauncher = MenuLauncher(view: self.view)
         
         let scene = SCNScene(named: "scene.scn", inDirectory: "art.scnassets/Scene/", options: nil)
         sceneView.delegate = self
@@ -63,7 +62,8 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideMenu))
         tapGestureRecognizer.delegate = self
-        view.addGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer.name = "hideMenu"
+        sceneView.addGestureRecognizer(tapGestureRecognizer)
         
     }
 
@@ -79,6 +79,7 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let menuLauncher = self.menuLauncher else { return }
         menuLauncher.hideMenu()
     }
+    
     
     // MARK: - NAVIGATION
     

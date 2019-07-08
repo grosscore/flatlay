@@ -16,9 +16,8 @@ struct Preview {
     let model: SCNReferenceNode!
     
     init(_ node: SCNReferenceNode) {
-        
         self.image = UIImage(named: node.modelName) ?? UIImage(named: "scenekit")
-        self.name = node.name
+        self.name = node.modelName
         self.model = node
     }
     

@@ -14,26 +14,26 @@ class MenuView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     @IBOutlet weak var contentCollectionView: UICollectionView!
     
     private let categories = ["OBJECTS", "SETTINGS"]
-    private let colors = [UIColor.blue, UIColor.yellow]
+    private let identifiers = ["objectsCollectionCell", "settingsCollectionCell"]
     
     override func awakeFromNib() {
         setupCollectionViews()
+        
     }
     
     // MARK: - UICollecitonView Delegate Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
+        return identifiers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.categoryCollectionView {
-            let categoryCell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath)
-            categoryCell.backgroundColor = colors[indexPath.row]
+            let categoryCell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionCell", for: indexPath) as! CategoryCollectionViewCell
+            categoryCell.categoryLabel.text = categories[indexPath.row]
             return categoryCell
         } else {
-            let contentCell = contentCollectionView.dequeueReusableCell(withReuseIdentifier: "contentCell", for: indexPath)
-            contentCell.backgroundColor = colors[indexPath.row].withAlphaComponent(0.5)
+            let contentCell = contentCollectionView.dequeueReusableCell(withReuseIdentifier: identifiers[indexPath.row], for: indexPath)
             return contentCell
         }
     }
@@ -52,14 +52,16 @@ class MenuView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
     }
     
-    func setupCollectionViews() {
+    private func setupCollectionViews() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         contentCollectionView.delegate = self
         contentCollectionView.dataSource = self
         
-        categoryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "categoryCell")
-        contentCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "contentCell")
+        categoryCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryCollectionCell")
+        contentCollectionView.register(UINib(nibName: "ObjectsCollectionCell", bundle: nil), forCellWithReuseIdentifier: "objectsCollectionCell")
+        contentCollectionView.register(UINib(nibName: "SettingsCollectionCell", bundle: nil), forCellWithReuseIdentifier: "settingsCollectionCell")
         
     }
+    
 }

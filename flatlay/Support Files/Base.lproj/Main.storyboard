@@ -14,39 +14,52 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController definesPresentationContext="YES" id="BV1-FR-VrT" customClass="MainViewController" customModule="flatlay" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="g5T-co-Hyj" customClass="SceneView" customModule="flatlay" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="v8A-lZ-nzH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8m-uk-OpB">
-                                <rect key="frame" x="157.5" y="587" width="60" height="60"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d59-Jj-KcM" customClass="SceneView" customModule="flatlay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSQ-aU-pvE">
+                                        <rect key="frame" x="157.5" y="587" width="60" height="60"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="DKF-Th-pfI"/>
+                                            <constraint firstAttribute="width" constant="60" id="r7O-db-c4L"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" image="menu"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showMenu:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ebe-D5-3Bl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="aDg-Mw-Ilz"/>
-                                    <constraint firstAttribute="width" constant="60" id="g7v-pw-xYS"/>
+                                    <constraint firstItem="jSQ-aU-pvE" firstAttribute="centerX" secondItem="l3R-A9-J0N" secondAttribute="centerX" id="4gu-lV-QYi"/>
+                                    <constraint firstItem="l3R-A9-J0N" firstAttribute="bottom" secondItem="jSQ-aU-pvE" secondAttribute="bottom" constant="20" id="hzZ-we-0We"/>
                                 </constraints>
-                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="menu"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="showMenu:" destination="BV1-FR-VrT" eventType="touchUpInside" id="zxb-fF-VWp"/>
-                                </connections>
-                            </button>
+                                <viewLayoutGuide key="safeArea" id="l3R-A9-J0N"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="H4e-GR-JFp" firstAttribute="bottom" secondItem="X8m-uk-OpB" secondAttribute="bottom" constant="20" id="AcP-qA-kZc"/>
-                            <constraint firstItem="X8m-uk-OpB" firstAttribute="centerX" secondItem="H4e-GR-JFp" secondAttribute="centerX" id="lZe-ZW-4wZ"/>
+                            <constraint firstAttribute="bottom" secondItem="d59-Jj-KcM" secondAttribute="bottom" id="7AG-lK-EpZ"/>
+                            <constraint firstItem="d59-Jj-KcM" firstAttribute="top" secondItem="v8A-lZ-nzH" secondAttribute="top" id="Bc5-sA-vCz"/>
+                            <constraint firstItem="d59-Jj-KcM" firstAttribute="leading" secondItem="v8A-lZ-nzH" secondAttribute="leading" id="OnU-Jv-BWR"/>
+                            <constraint firstAttribute="trailing" secondItem="d59-Jj-KcM" secondAttribute="trailing" id="gr6-If-B2P"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="H4e-GR-JFp"/>
+                        <viewLayoutGuide key="safeArea" id="9yF-Mp-I2T"/>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="g5T-co-Hyj" id="D03-qx-8cU"/>
+                        <outlet property="sceneView" destination="d59-Jj-KcM" id="PMg-Le-YS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
